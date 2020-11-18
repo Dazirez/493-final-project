@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <!-- Added this meta tag 04/07/2018 -->
+    <meta name = "viewport" content = "user-scalable=no,width=device-width">
+    <link href = "style.css" rel = "stylesheet" type = "text/css">
+    <title>Rabbit Trap</title>
+
+  </head>
+
+  <body>
+
+    <canvas></canvas>
+
+    <!-- Since Rabbit Trap is a multi-part series and I didn't feel like writing
+    html and css for every single part, I decided to dynamically add the appropriate
+    js file containing the game logic for each part based on url parameters. -->
+    <script type = "text/javascript">
+
+
+      /* Added on 03/09/2018 to allow reusing scripts from previous parts. */
+      let parts = [
+        "js/controller.js", "js/display.js", "js/engine.js", "js/game.js", "js/main.js"
+      ]
+
+
+      for (let index = 0; index < parts.length; index ++) {
+
+        let script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        script.setAttribute("src", parts[index]);
+        document.head.appendChild(script);
+
+      }
+
+      let menu      = document.getElementById("menu");
+      let menu_list = document.getElementById("menu-list");
+
+      menu.addEventListener("click", function(event) {
+
+        menu_list.style.display = (menu_list.style.display == "none") ? "grid" : "none";
+
+      });
+
+      menu_list.style.display = "none";
+
+    </script>
+
+  </body>
+
+</html>
