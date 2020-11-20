@@ -24,6 +24,7 @@ window.addEventListener("load", function(event) {
   const AssetsManager = function() {
 
     this.tile_set_image = undefined;
+    this.enemy_image = undefined;
 
   };
 
@@ -77,6 +78,7 @@ window.addEventListener("load", function(event) {
     frame.x, frame.y,
     game.world.player.x + Math.floor(game.world.player.width * 0.5 - frame.width * 0.5) + frame.offset_x,
     game.world.player.y + frame.offset_y, frame.width, frame.height);
+
 
     display.render();
 

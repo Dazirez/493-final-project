@@ -54,6 +54,8 @@ Game.World = function(friction = 0.8, gravity = 2) {
   and collision as this game won't use scaling on individual objects. */
   this.tile_set = new Game.World.TileSet(8, 16);
   this.player   = new Game.World.Object.Player(100, 100);// The player in its new "namespace".
+  this.Enemy = new Game.World.Object.Enemy(100,100)
+
 
   this.map = [39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39, 39,
     02, 39, 39, 39, 39, 39, 39, 39, 39, 31, 39, 39, 39, 39, 39, 39, 39, 39, 39,
@@ -343,6 +345,17 @@ Game.World.Object.Player = function(x, y) {
   Game.World.Object.Animator.call(this, Game.World.Object.Player.prototype.frame_sets["idle-left"], 10);
 
   this.jumping     = true;
+  this.direction_x = -1;
+  this.velocity_x  = 0;
+  this.velocity_y  = 0;
+
+};
+Game.World.Object.Enemy = function(x, y) {
+
+  Game.World.Object.call(this, 50, 50, 7, 14);
+  Game.World.Object.Animator.call(this, Game.World.Object.Player.prototype.frame_sets["idle-left"], 10);
+
+  this.jumping     = false;
   this.direction_x = -1;
   this.velocity_x  = 0;
   this.velocity_y  = 0;

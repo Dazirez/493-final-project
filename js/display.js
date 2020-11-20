@@ -24,6 +24,9 @@ const Display = function(canvas) {
       this.buffer.drawImage(image, source_x, source_y, tile_size, tile_size, destination_x, destination_y, tile_size, tile_size);
 
     }
+    enemy = new Image(10,10);
+    enemy.src = "enemy.png"
+    this.buffer.drawImage(enemy, 175,75,20,20);
 
   };
 
@@ -31,7 +34,12 @@ const Display = function(canvas) {
 
     this.buffer.drawImage(image, source_x, source_y, width, height, Math.round(destination_x), Math.round(destination_y), width, height);
 
+
   };
+
+
+
+
 
   this.resize = function(width, height, height_width_ratio) {
 
