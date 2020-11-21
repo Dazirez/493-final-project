@@ -111,15 +111,31 @@ window.addEventListener("load", function(event) {
   display.buffer.canvas.height = game.world.height;
   display.buffer.canvas.width  = game.world.width;
   display.buffer.imageSmoothingEnabled = false;
- 
+
   /* Now my image is loaded into the assets manager instead of the display object.
   The callback starts the game engine when the graphic is loaded. */
-  assets_manager.loadTileSetImage("super-vaccine-man.png", () => {
+  var elem = document.createElement("img");
+  elem.src = 'assets/menu.png';
+  elem.setAttribute("height", document.documentElement.clientHeight);
+  elem.setAttribute("width", document.documentElement.clientWidth);
+  elem.setAttribute("alt", "menu");
+  document.body.append(elem);
+  window.addEventListener("keypress", function(e) {
 
-    resize();
-    engine.start();
+    var key = e.which || e.keyCode || 0;
+    
+    if (key === 13) {
+        console.log(elem);
+        document.body.removeChild(elem);
+        assets_manager.loadTileSetImage("super-vaccine-man.png", () => {
 
-  });
+        resize();
+        engine.start();
+
+     });
+    }
+});
+  
 
   window.addEventListener("keydown", keyDownUp);
   window.addEventListener("keyup",   keyDownUp);
