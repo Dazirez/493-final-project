@@ -111,7 +111,7 @@ window.addEventListener("load", function(event) {
   display.buffer.canvas.height = game.world.height;
   display.buffer.canvas.width  = game.world.width;
   display.buffer.imageSmoothingEnabled = false;
-
+ 
   /* Now my image is loaded into the assets manager instead of the display object.
   The callback starts the game engine when the graphic is loaded. */
   assets_manager.loadTileSetImage("super-vaccine-man.png", () => {
